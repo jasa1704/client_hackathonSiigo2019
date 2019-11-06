@@ -1,0 +1,227 @@
+<div class="modal-content">
+  <div class="modal-header">
+      <h4 class="modal-title" id="exampleModalLabel1">Perfil del paciente</h4>
+      <button type="button" (click)="hide()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+    <div class="row animated fadeIn">
+
+      <div class="col-sm-12">
+          <div class="card">
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label class="col-form-label">Tipo documento</label>
+                        <select id="tpdoc" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.tpdoc" disabled>
+                          <option>CC</option>
+                          <option>TI</option>
+                          <option>CE</option>
+                          <option>RC</option>
+                        </select>
+                      </div>
+                      <div class="col-md-8">
+                        <label class="col-form-label">Numero documento</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.numdoc" disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Primer Nombre</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.nombre1">
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Segundo Nombre</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.nombre2">
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Primer Apellido</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.apellido1">
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Segundo Apellido</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.apellido2">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Sexo</label>
+                        <select id="sexo" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.sexo">
+                          <option selected>Ninguno</option>
+                          <option>Femenino</option>
+                          <option>Masculino</option>
+                          <option>Otro</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Raza</label>
+                        <select id="raza" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.raza">
+                          <option selected>Ninguno</option>
+                          <option>Negra o Africana</option>
+                          <option>Asiática</option>
+                          <option>Blanca</option>
+                          <option>Amerindio</option>
+                          <option>Otra</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Estado Civil</label>
+                        <select id="estadoCivil" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.estadoCivil">
+                          <option selected>Ninguno</option>
+                          <option>Casado (a)</option>
+                          <option>Soltero (a)</option>
+                          <option>Union libre</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Hijos</label>
+                        <select id="hijos" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.hijos">
+                          <option selected>Ninguno</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Celular</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.celular">
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Correo</label>
+                        <input type="email" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.correo">
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Fecha de nacimiento</label>
+                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.fechaN" disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Dirección</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.direccion" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Zona</label>
+                        <select id="zona" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.zona">
+                          <option selected>Ninguno</option>
+                          <option>Rural</option>
+                          <option>Urbano</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Departamento</label>
+                        <select id="departamento" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.departamento">
+                          <option selected>Ninguno</option>
+                          <option>Cauca</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="recipient-name" class="col-form-label">Municipio</label>
+                        <select id="municipio" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.municipio">
+                          <option selected>Ninguno</option>
+                          <option>Popayan</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                        <div class="col">
+                          <label for="recipient-name" class="col-form-label">Nivel Educativo</label>
+                          <select id="nivelEducativo" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.nivelEducativo" required>
+                            <option selected>Ninguno</option>
+                            <option>Básica Primaria</option>
+                            <option>Básica Secundaria</option>
+                            <option>Técnico</option>
+                            <option>Tecnólogo</option>
+                            <option>Profesional</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="recipient-name" class="col-form-label">Regimen seguridad social</label>
+                          <select id="regimenSS" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.regimenSS" disabled>
+                            <option selected>Ninguno</option>
+                            <option>Contributivo</option>
+                            <option>Subsidiado</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="recipient-name" class="col-form-label">Entidad</label>
+                          <select id="entidad" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.entidad" disabled>
+                            <option selected>Ninguno</option>
+                            <option>Sanitas</option>
+                            <option>Emssanar</option>
+                            <option>Asmet Salud</option>
+                            <option>Nueva EPS</option>
+                            <option>Medimás</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col">
+                          <label for="recipient-name" class="col-form-label">Nombre Acudiente</label>
+                          <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.nombreAcudiente" required>
+                      </div>
+                      <div class="col">
+                          <label for="recipient-name" class="col-form-label">Celular Acudiente</label>
+                          <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.celularAcudiente" required>
+                      </div>
+                      <div class="col">
+                          <label for="recipient-name" class="col-form-label">Correo Acudiente</label>
+                          <input type="email" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.correoAcudiente" required>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-sm-5">
+          <div class="card">
+              <div class="card-body text-center">
+                  <h4 class="card-title">Imagen de perfil</h4>
+                  <img *ngIf="imagenTemp" [src]="imagenTemp" alt="patient" height="150" width="150">
+                  <img *ngIf="!imagenTemp" [src]="patient.img | imagen: 'patient'" alt="patient" height="150" width="150">
+                  <br><br>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" (change)="HandleSelectionImage($event.target.files[0])"
+                      aria-describedby="inputGroupFileAddon01">
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-outline-success" data-dismiss="modal">Restrablecer</button> -->
+    <button type="button" class="btn btn-success" (click)="HandleActualizarPerfil()">Actualizar</button>
+  </div>
+</div>

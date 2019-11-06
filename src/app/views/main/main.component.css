@@ -1,0 +1,40 @@
+.titulo{
+  text-align: center;
+  font-size: 14px;
+}
+
+.button{
+  text-align: left;
+}
+.btn-botton{
+
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  right: 2;
+}
+
+.material-icons{
+  font-size: 13px !important;
+}
+
+th[colspan = "3"]{
+  text-align: center;
+}
+.container{
+  max-width: 100% !important;
+  position: fixed !important;
+  margin-top: 140px;
+  overflow-y: scroll !important;
+  height: 100%;
+}
+
+.form-control-borderless {
+  border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+  /* border: none; */
+  outline: none;
+  box-shadow: none;
+}

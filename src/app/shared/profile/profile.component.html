@@ -1,0 +1,55 @@
+<div class="modal-content">
+  <div class="modal-header">
+      <h4 class="modal-title" id="exampleModalLabel1">Perfil del terapeuta</h4>
+      <button type="button" (click)="hide()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+    <div class="row animated fadeIn">
+
+      <div class="col-sm-5">
+          <div class="card">
+              <div class="card-body">
+                      <form ngNativeValidate #f="ngForm" class="form">
+                      <div class="form-group">
+                          <label for="exampleInputuname">Nombre del usuario</label>
+                          <div class="input-group">
+                              <div class="input-group-addon"><i class="ti-user"></i></div>
+                              <input name="nombre" type="text" class="form-control" [(ngModel)]="usuario.nombre" placeholder="Nombre de usuario" required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Correo de usuario</label>
+                          <div class="input-group">
+                              <div class="input-group-addon"><i class="ti-email"></i></div>
+                              <input name="email" type="email" class="form-control" placeholder="{{usuario.email}}" disabled>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="col-sm-5">
+          <div class="card">
+              <div class="card-body text-center">
+                  <h4 class="card-title">Imagen de perfil</h4>
+                  <img *ngIf="imagenTemp" [src]="imagenTemp" alt="therapist" height="150" width="150">
+                  <img *ngIf="!imagenTemp" [src]="usuario.img | imagen: 'therapist'" alt="therapist" height="150" width="150">
+                  <br><br>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" (change)="HandleSelectionImage($event.target.files[0])"
+                      aria-describedby="inputGroupFileAddon01">
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-outline-success" data-dismiss="modal">Restrablecer</button> -->
+    <button type="button" class="btn btn-success" (click)="HandleActualizarPerfil()">Actualizar</button>
+  </div>
+</div>

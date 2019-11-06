@@ -1,0 +1,42 @@
+<div class="modal-content">
+  <div class="modal-header">
+      <h4 class="modal-title" id="exampleModalLabel1">Cambiar Contraseña</h4>
+      <button type="button" (click)="hide()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+      <form>
+          <div class="form-group">
+              <label for="recipient-name" class="control-label">Usuario</label>
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="ti-email"></i></div>
+                  <input type="text" class="form-control" id="recipient-name1" placeholder="{{usuario}}" disabled>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="message-text" class="control-label">Contraseña anterior</label>
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="ti-lock"></i></div>
+                  <input type="password" class="form-control" id="password1" name="password1" [(ngModel)]="accoutSettings.password1" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="message-text" class="control-label">Contraseña nueva</label>
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="ti-lock"></i></div>
+                  <input type="password" class="form-control" id="password2" name="password2" [(ngModel)]="accoutSettings.password2" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="message-text" class="control-label">Confirmar contraseña</label>
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="ti-lock"></i></div>
+                  <input type="password" class="form-control" id="password3" name="password3" [(ngModel)]="accoutSettings.password3" required>
+              </div>
+          </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-outline-info" data-dismiss="modal">Restablecer</button>
+      <button type="button" class="btn btn-info" (click)="HandleActualizarContrasena()">Actualizar</button>
+  </div>
+</div>

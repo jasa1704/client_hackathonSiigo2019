@@ -1,0 +1,99 @@
+<!-- ============================================================== -->
+<!-- Topbar header - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<header class="topbar navbar">
+  <div class="containerCustom">
+    <a class="navbar-brand navbar-brand imageCustom">
+      <!-- Logo icon -->
+      <!-- <b>
+        <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo"
+          style="width: 30px; height: 30px" />
+      </b> -->
+      <!--End Logo icon -->
+      <!-- Logo text -->
+      <span>
+        <img src="assets/images/siigo.png" class="light-logo" alt="homepage"
+          style="width: 110px; height: 80px" />
+      </span>
+    </a>
+  </div>
+  <nav class="navbar top-navbar navbar-expand-md navbar-light">
+    <div class="navbar-collapse">
+      <!-- ============================================================== -->
+      <!-- Datos terapeuta -->
+      <!-- ============================================================== -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="mr-2" style="color:white">
+            <span> Bienvenido al sistema, hoy {{ fechaActual }} </span>
+          </a>
+          <a style="color:white">
+            <i class="ti-user"></i><span> {{ headerNombre }}</span>
+          </a>
+        </li>
+      </ul>
+      <!-- ============================================================== -->
+      <!-- Datos terapeuta -->
+      <!-- ============================================================== -->
+      <ul class="navbar-nav my-lg-0">
+        <!-- ============================================================== -->
+        <!-- Profile -->
+        <!-- ============================================================== -->
+
+        <li class="nav-item dropdown">
+          <a class="has-arrow nav-link waves-effect dropdown ml-2" data-toggle="dropdown" aria-expanded="false">
+            <span>mi cuenta</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+            <ul class="dropdown-user">
+              <li>
+                <div class="dw-user-box" align="center">
+                  <div class="u-img"><img [src]="usuario.img | imagen: 'therapist'" alt="therapist"></div>
+                  <div class="u-text">
+                    <h4> {{ usuario.email }} </h4>
+                    <p class="text-muted"> {{headerProfesion}} </p>
+                  </div>
+                </div>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li role="separator" class="divider"></li>
+              <li><a (click)="_usuarioService.logout()" class="pointer"><i class="fa fa-sign-out"></i> Cerrar
+                  sesión</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- ============================================================== -->
+<!-- End Topbar header -->
+<!-- ============================================================== -->
+
+
+<!-- Modal Actualizar contraseña-->
+
+<div bsModal #firstModal="bs-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+  aria-labelledby="myLargeModalLabel" aria-hidden="true" (onShow)="hide = true" (onHide)="hide = false">
+  <div class="modal-dialog modal-primary" role="document">
+    <div class="modal-content">
+      <app-accout-settings #publicAttencionCrearComponent (hidden)="firstModal.hide()" [usuario]="usuario.email"
+        [accoutSettings]="accoutSettings" (onActualizarContrasena)="onActualizarContrasena()">
+      </app-accout-settings>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Actualizar Perfil-->
+
+<div bsModal #secondModal="bs-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+  aria-labelledby="myLargeModalLabel" aria-hidden="true" (onShow)="hide = true" (onHide)="hide = false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <app-profile #profileComponent [usuario]="usuario" [imagenTemp]="imagenTemp" (hidden)="secondModal.hide()"
+        (onActualizarPerfil)="onActualizarPerfil()" (onSelectionImage)="onSelectionImage($event)">
+      </app-profile>
+    </div>
+  </div>
+</div>
