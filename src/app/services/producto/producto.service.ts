@@ -56,8 +56,17 @@ export class ProductoService {
     console.log('item',item)
     let url = URL_SERVICIOS + '/items/create';
     this.http.post(url, item).subscribe((resp: any) => {
-      return (callback);
+      return callback(resp);
     })
+  }
+
+  GetItems(callback)
+  {
+    let url = URL_SERVICIOS + '/items';
+    this.http.get(url).subscribe(res => {
+      return callback(res);
+    })
+
   }
   //Objeto creado para importar base de datos externas
   OnUploadBaseDatos(type: string, selectedFile: File, tenant_id: string, callback) {

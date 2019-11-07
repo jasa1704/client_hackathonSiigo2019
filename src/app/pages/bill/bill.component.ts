@@ -41,6 +41,7 @@ export class BillComponent implements OnInit {
 
     this.GetAllClients();
     this.GetAllProducts();
+    this.GetItems();
   }
 
   setPage(page: number) {
@@ -66,12 +67,21 @@ export class BillComponent implements OnInit {
     })
   }
 
+  GetItems() {
+
+    this.productoService.GetItems(res=>{
+      this.items = res.items;
+    })
+
+  }
+
   CreateItem()
   {
     this.item.tenant_id = this.usuario._id;
     this.item.product_id = this.producto._id;
     this.productoService.CrearItem(this.item, res=>{
-      console.log(res)
+      console.log(res);
+      this.GetItems();
     })
 
   }
