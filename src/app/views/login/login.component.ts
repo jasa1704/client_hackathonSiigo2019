@@ -35,8 +35,7 @@ export class LoginComponent implements OnInit {
     if ( forma.invalid ) {
       return;
     }
-    let usuario = new Usuario(null, null, null, null, forma.value.email, forma.value.password);
-    // this.router.navigate(['/main']);
+    let usuario = new Usuario(null, null, forma.value.email, forma.value.password);
     this._usuarioService.login( usuario, forma.value.recuerdame, res=> {
       if(res.ok === true){
         this.router.navigate(['/siigo/client']);

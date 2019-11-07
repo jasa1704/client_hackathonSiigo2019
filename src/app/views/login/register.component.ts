@@ -49,8 +49,6 @@ export class RegisterComponent implements OnInit {
       this.forma = new FormGroup({
         nombre: new FormControl( null , Validators.required ),
         celular: new FormControl( null , Validators.required ),
-        profesion: new FormControl( null , Validators.required ),
-        registroProfesional: new FormControl( null , Validators.required ),
         correo: new FormControl( null , [Validators.required, Validators.email] ),
         password: new FormControl( null , Validators.required ),
         password2: new FormControl( null , Validators.required ),
@@ -60,8 +58,6 @@ export class RegisterComponent implements OnInit {
       this.forma.setValue({
         nombre: '',
         celular: '',
-        profesion: '',
-        registroProfesional: '',
         correo: '',
         password: '',
         password2: '',
@@ -83,8 +79,6 @@ export class RegisterComponent implements OnInit {
     let usuario = new Usuario(
       this.forma.value.nombre,
       this.forma.value.celular,
-      this.forma.value.profesion,
-      this.forma.value.registroProfesional,
       this.forma.value.correo,
       this.forma.value.password
     );

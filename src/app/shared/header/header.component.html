@@ -7,7 +7,7 @@
     <!-- Logo -->
     <!-- ============================================================== -->
     <div class="navbar-header">
-      <a class="navbar-brand pointer" (click)="volverMain()" style="display: flex; justify-content: center;">
+      <a class="navbar-brand pointer" style="display: flex; justify-content: center;">
         <!-- Logo text -->
         <span>
           <!-- dark Logo text -->
@@ -63,16 +63,14 @@
             <ul class="dropdown-user">
               <li>
                 <div class="dw-user-box" align="center">
-                  <div class="u-img"><img [src]="usuario.img | imagen: 'therapist'" alt="therapist"></div>
+                  <div class="u-img"><img [src]="usuario.img | imagen: 'client'" alt="client"></div>
                   <div class="u-text">
                     <h4> {{ usuario.email }} </h4>
-                    <p class="text-muted"> {{headerProfesion}} </p>
                   </div>
                 </div>
               </li>
               <li role="separator" class="divider"></li>
-              <li role="separator" class="divider"></li>
-              <li><a (click)="_usuarioService.logout()" class="pointer"><i class="fa fa-mail-reply"></i> Volver</a></li>
+              <li><a (click)="_usuarioService.logout()" class="pointer"><i class="mdi mdi-close"></i> Salir</a></li>
             </ul>
           </div>
         </li>

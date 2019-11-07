@@ -39,16 +39,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.usuario = this._usuarioService.usuario;
     this.headerNombre = this.usuario.nombre;
-    this.headerProfesion = this.usuario.profesion;
+    // this.headerProfesion = this.usuario.profesion;
   }
 
   buscar( termino: string ) {
     this.router.navigate(['/busqueda', termino ]);
-  }
-
-  volverMain(){
-    // localStorage.removeItem('patient');
-    this.router.navigate(['/login']);
   }
 
   modalActualizarContrasena(){

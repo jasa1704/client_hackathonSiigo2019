@@ -39,7 +39,6 @@ export class HeaderMainComponent implements OnInit {
   ngOnInit() {
     this.usuario = this._usuarioService.usuario;
     this.headerNombre = this.usuario.nombre;
-    this.headerProfesion = this.usuario.profesion;
   }
 
   buscar( termino: string ) {
