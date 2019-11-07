@@ -1,3 +1,168 @@
-<p>
-  Facturas
-</p>
+<div class="container" style="background-color:white;">
+  <br>
+  <div class="text-center">
+    <h1>Factura</h1>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <!-- <h3 class="panel-title">Cabecera</h3> -->
+
+          <div class="row">
+
+            <div class="col-md-5">
+              <div class="form-group">
+                <label for="cliente" class="col-sm-2 control-label">Cliente</label>
+                <div class="row">
+                  <div class="col-md-10">
+                    <input class="form-control" id="cliente" placeholder="cliente" type="text">
+                  </div>
+                  <div class="col-md-2">
+                    <button type="button" class="btn"><i class="fa fa-plus-square"></i> </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-group">
+                <label for="fecha" class="col-sm-5 control-label">Fecha factura</label>
+
+                <input class="form-control" id="fecha" placeholder="fecha factura" type="date">
+
+              </div>
+            </div>
+            <div class="col-md-2 target">
+              <div class="form-group">
+                <label for="id" class="col-sm-3 control-label">#</label>
+
+                <input class="form-control" id="id" type="text">
+
+              </div>
+            </div>
+          </div> <!-- row -->
+          <br>
+
+          <!-- <div class="row">
+          <div class="col-md-6">
+            <address>
+              <strong class="">BERNARDO GINARD PRATS</strong><br class="">
+              Carrer Ciutadella nº 26 A<br class="">
+              07008 Palma<br class="">
+              Illes Balears<br class="">
+            </address>
+          </div>
+        </div> 
+      </div> -->
+
+
+          <div class="panel-body">
+
+            <h3 class="panel-title">Detalle Item</h3>
+
+            <div class="row">
+
+              <div class="col-4">
+                <input class="form-control" id="cliente" placeholder="Producto" type="text">
+              </div>
+              <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
+                  class="fa fa-plus-square"></i> </button>
+              <div class="col-2">
+                <input class="form-control" id="fecha" placeholder="Cant." type="number">
+              </div>
+              <div class="col-2">
+                <input class="form-control" id="valor" placeholder="Valor c/u" type="number">
+              </div>
+              <div class="col-2">
+                <input class="form-control" id="total" placeholder="Valor Total" type="number">
+              </div>
+              <button type="button" class="btn btn-success"> Agregar</button>
+
+
+            </div>
+
+            <br>
+            <br>
+            <h3 class="panel-title">Detalle</h3>
+
+
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th class="">Producto</th>
+                  <th class="">Descripción</th>
+                  <th class="">cantidad</th>
+                  <th class="">precio</th>
+                  <th class="">tipo impuesto</th>
+                  <th class="">importe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="">001</td>
+                  <td class="">Doe moe</td>
+                  <td class="">12.00</td>
+                  <td class="">100.00</td>
+                  <td class="">Reducido 7%</td>
+                  <td class="">1200.00</td>
+                </tr>
+                <tr>
+                  <td class="">002</td>
+                  <td class="">Doe moe TURURU</td>
+                  <td class="">10.00</td>
+                  <td class="">1000.00</td>
+                  <td class="">Normal 18%</td>
+                  <td class="">10000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> <!-- panel body -->
+          <div class="panel-footer">Piefactura
+          </div>
+        </div> <!-- panel -->
+      </div> <!-- col -->
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Datos del Producto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Nombre</label>
+                  <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="productoAdd.nombre">
+                </div>
+
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Precio</label>
+                  <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="productoAdd.precio">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-success"
+            (click)="restablcerCrearProducto()">Restrablecer</button>
+          <button type="button" class="btn btn-success" (click)='AddNewProduct()'>Crear Producto</button>
+        </div>
+      </div>
+    </div>
+  </div>

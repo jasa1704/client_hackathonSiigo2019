@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductoService, PagerService } from '../../services/service.index';
 import { Producto } from '../../interfaces/index'
+
 
 
 @Component({
@@ -20,6 +21,12 @@ export class ProductComponent implements OnInit {
   private allItems: any[];
   public pager: any = {};
   public pagedItems = [];
+  predictive;
+  selectedItem
+  reset
+  queryUsed
+  searchError
+ 
 
   constructor(
     private productoService: ProductoService,
@@ -30,8 +37,6 @@ export class ProductComponent implements OnInit {
 
     this.GetAllProducts();
   }
-
-
 
   GetAllProducts() {
     this.productoService.GetProductos(res => {
@@ -49,19 +54,18 @@ export class ProductComponent implements OnInit {
   }
 
   EditarProducto() {
-   
+
     console.log(this.productoEdit);
 
     this.productoService.EditProducto(this.productoEdit, res => {
 
       console.log(res);
-      
+
     })
   }
-  
-  EliminarProducto()
-  {
-    this.productoService.EliminarProducto(this.productoEliminar, res=>{
+
+  EliminarProducto() {
+    this.productoService.EliminarProducto(this.productoEliminar, res => {
       console.log(res);
       this.GetAllProducts();
 
