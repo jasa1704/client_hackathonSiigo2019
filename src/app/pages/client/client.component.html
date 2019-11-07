@@ -65,7 +65,7 @@
                       data-target="#editarModal" (click)="clientEdit=item" tooltip="Editar Cliente">
                     </button>
                     <button type="button" class="btn btn-secondary fa fa-trash" data-toggle="modal"
-                      data-target="#eliminarModal" tooltip="Eliminar Cliente" (click)="productoEliminar=item">
+                      data-target="#eliminarModal" tooltip="Eliminar Cliente" (click)="clientEliminar=item">
                     </button>
                   </td>
                 </tr>
@@ -352,3 +352,30 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Eliminar producto -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eliminarModalLabel">Eliminar cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <div class="col">
+                <h3>¿Esta seguro que desea eliminar este cliente?</h3>
+              </div>
+            </div>
+
+       <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)='EliminarProducto()'>SI</button>
+      </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>

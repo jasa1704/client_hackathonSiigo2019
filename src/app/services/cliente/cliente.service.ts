@@ -34,7 +34,7 @@ export class ClientesService {
 
   }
 
-  EditProducto(cliente: Client, callback)
+  EditCliente(cliente: Client, callback)
   {
     let url = URL_SERVICIOS + '/clientes/'+cliente._id;
     this.http.post(url, cliente).subscribe((resp:any)=>{
@@ -44,6 +44,17 @@ export class ClientesService {
       swal('Problema en el servidor', error.error.mensaje, 'error');
     })
 
+  }
+
+  EliminarCliente(cliente: Client, callback){
+    let url = URL_SERVICIOS + '/clientes/delete/'+cliente._id;
+
+    this.http.post(url, cliente).subscribe((res:any)=>{
+      swal('Cliente eliminado', cliente.email, 'success');
+      return callback(res);
+    }, error => {
+      swal('Problema en el servidor', error.error.mensaje, 'error');
+    })
   }
 
 }
