@@ -28,7 +28,16 @@ export class ProductoService {
   
   AddProducto(producto: Producto, callback)
   {
-    let url = URL_SERVICIOS + '/productos';
+    let url = URL_SERVICIOS + '/productos/';
+    this.http.post(url, producto).subscribe((resp:any)=>{
+      return callback(resp);
+    })
+
+  }
+
+  EditProducto(producto: Producto, callback)
+  {
+    let url = URL_SERVICIOS + '/productos/'+producto._id;
     this.http.post(url, producto).subscribe((resp:any)=>{
       return callback(resp);
     })
