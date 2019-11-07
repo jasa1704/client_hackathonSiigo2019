@@ -1,5 +1,6 @@
 
 // Guards
+export { ClientesService } from './cliente/cliente.service';
 export { ProductoService } from './producto/producto.service';
 export { UsuarioService } from './usuario/usuario.service';
 export { PatientService } from './patient/patient.service';

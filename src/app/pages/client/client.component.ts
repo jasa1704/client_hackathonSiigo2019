@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 
 //Interfaces
 import { Client } from '../../interfaces/index'
 
 //Servicios
 import { PagerService } from '../../services/shared/pager.service'
+import { ClientesService } from '../../services/service.index';
 
 @Component({
   selector: 'app-client',
@@ -18,12 +17,7 @@ export class ClientComponent implements OnInit {
   client = new Client();
   client1: Client[] = [];
 
-  constructor(private http: HttpClient, private pagerService: PagerService) {
-    this.getJSON().subscribe(data => {
-      this.client1 = data;
-      this.allItems = data;
-      this.setPage(1);
-    });
+  constructor(private pagerService: PagerService, private clientesService: ClientesService) {
   }
 
   private allItems: any[];
@@ -31,11 +25,8 @@ export class ClientComponent implements OnInit {
   public pagedItems = [];
   public Search: any = '';
 
-  public getJSON(): Observable<any> {
-    return this.http.get("./assets/data/data1.json");
-  }
-
   ngOnInit() {
+    this.GetAllClients();
   }
 
   setPage(page: number) {
@@ -44,6 +35,15 @@ export class ClientComponent implements OnInit {
 
     // get current page of items
     this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+
+  GetAllClients()
+  {
+    this.clientesService.GetClientes(res=>{
+      this.client1 = res.clients;
+      this.allItems = res.clients;
+      this.setPage(1);
+    })
   }
 
 }
