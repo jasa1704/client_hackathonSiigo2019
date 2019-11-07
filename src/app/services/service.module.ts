@@ -18,6 +18,7 @@ import {
   PagerService,
   FilesService
  } from './service.index';
+import { ProductoService } from './producto/producto.service';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import {
     SubirArchivoService,
     ModalUploadService,
     FilesService,
+    ProductoService,
     VerificaTokenGuard
   ],
   declarations: []

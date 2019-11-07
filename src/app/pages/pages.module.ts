@@ -14,6 +14,7 @@ import { BillComponent } from './bill/bill.component';
 // Pipe Module
 import { PipesModule } from '../pipes/pipes.module';
 import { DataFilterPipe } from './datafilterpipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DataFilterPipe } from './datafilterpipe';
     SharedModule,
     FormsModule,
     ChartsModule,
+    ModalModule.forRoot(),
     PipesModule,
     DataTableModule,
   ]
