@@ -6,7 +6,7 @@
 
   <br>
 
-  <div class="row">
+  <div class="row" id="bill">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -105,22 +105,17 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let item of mf.data; let i = index">
-                      <th class="text-center" scope="row">{{ i+1 }}</th>
                       <td class="text-center">{{item.product_id.nombre }}</td>
                       <td class="text-center">{{item.quantity }}</td>
                       <td class="text-center">{{item.unit_value }}</td>
                       <td class="text-center">{{item.item_value }}</td>
-                      <td class="text-center">
-                        <button type="button" data-dismiss="modal" class="btn btn-secondary fa fa-plus-square" data-toggle="modal"
-                          (click)="producto=item;" tooltip="Ver Producto">
-                        </button>
-                      </td>
                     </tr>
                   </tbody>
                 </table>
               </table>
           </div> <!-- panel body -->
-          <div class="panel-footer">Piefactura
+          <div class="panel-footer">
+            <button type="button" (click)="downloadReport()" class="btn btn-secondary">Descargar Factura</button>
           </div>
         </div> <!-- panel -->
       </div> <!-- col -->

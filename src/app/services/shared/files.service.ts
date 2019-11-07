@@ -147,7 +147,7 @@ export class FilesService {
       doc.setFontSize(10);
 
       doc.text(logoSize.x + margin.left, 10, 'Siigo');
-      doc.text(logoSize.x + margin.left, 15, 'NIT: ' + 'xxx.xxx.xxx');
+      doc.text(logoSize.x + margin.left, 15, 'NIT: ' + '830.048.145 - 8');
       doc.text(logoSize.x + margin.left, 20, 'Mas que un software contable');
 
       doc.text(margin.right, 10, 'Software Constable Siigo', 'right');
@@ -164,11 +164,11 @@ export class FilesService {
 
       doc.setFontSize(9);
       let xOffsetWww = this.calcularCentroPDF(doc, pageWidth, 'www.siigo.com');
-      let xOffsetTel = this.calcularCentroPDF(doc, pageWidth, '8228822');
+      let xOffsetTel = this.calcularCentroPDF(doc, pageWidth, '6338360');
       let xOffsetDir = this.calcularCentroPDF(doc, pageWidth, 'Popayán Cauca');
 
       doc.text(xOffsetWww, margin.down + 5, 'www.siigo.com');
-      doc.text(xOffsetTel, margin.down + 10, '8228822');
+      doc.text(xOffsetTel, margin.down + 10, '6338360');
       doc.text(xOffsetDir, margin.down + 15, 'Popayán Cauca');
     }
 
