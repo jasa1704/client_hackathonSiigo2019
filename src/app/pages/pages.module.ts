@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
+import { DataTableModule } from "angular-6-datatable";
 
 //Components
 import { ClientComponent } from './client/client.component';
@@ -12,21 +13,22 @@ import { BillComponent } from './bill/bill.component';
 
 // Pipe Module
 import { PipesModule } from '../pipes/pipes.module';
+import { DataFilterPipe } from './datafilterpipe';
 
 @NgModule({
   declarations: [
     ClientComponent,
     ProductComponent,
     BillComponent,
-  ],
-  exports: [
+    DataFilterPipe
   ],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
     ChartsModule,
-    PipesModule
+    PipesModule,
+    DataTableModule,
   ]
 })
 export class PagesModule { }
