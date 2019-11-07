@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Producto } from '../../interfaces/index'
+import swal from 'sweetalert';
 
 //Interfaces
 import { Usuario } from '../../models/usuario.model';
@@ -22,9 +23,8 @@ export class ProductComponent implements OnInit {
   public productoVer = new Producto();
   public Search = '';
 
-  private allItems: any[];
-  public pager: any = {};
-  public pagedItems = [];
+  // Seleccionar bases de datos
+  selectedFile = null;
 
   constructor(
     private productoService: ProductoService,
@@ -32,9 +32,21 @@ export class ProductComponent implements OnInit {
     public _usuarioService: UsuarioService
   ) { }
 
+  private allItems: any[];
+  public pager: any = {};
+  public pagedItems = [];
+
   ngOnInit() {
     this.usuario = this._usuarioService.usuario;
     this.GetAllProducts();
+  }
+
+  setPage(page: number) {
+    // get pager object from service
+    this.pager = this.pagerService.getPager(this.allItems.length, page);
+
+    // get current page of items
+    this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 
   GetAllProducts() {
@@ -71,12 +83,25 @@ export class ProductComponent implements OnInit {
     this.productoAdd = new Producto();
   }
 
-  setPage(page: number) {
-    // get pager object from service
-    this.pager = this.pagerService.getPager(this.allItems.length, page);
+    /* ################## Cargar base de datos ############################ */
 
-    // get current page of items
-    this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
-  }
+    seleccionarArchivos(event) {
+      this.selectedFile = event.target.files[0];
+    }
+
+    onUploadBaseDatos() {
+      if (this.selectedFile != null) {
+        this.productoService.OnUploadBaseDatos('productos', this.selectedFile, this.usuario._id, res => {
+          if (res.ok) {
+            swal('Carga exitosa', 'los productos fueron cargados exitosamente', 'success');
+            this.GetAllProducts();
+          } else {
+            swal('Problemas con el servidor', 'Error al cargar los productos', 'error');
+          }
+        })
+      } else {
+        swal('Advertencia ', 'Debes seleccionar y cargar la base de datos antes de continuar', 'warning');
+      }
+    }
 
 }

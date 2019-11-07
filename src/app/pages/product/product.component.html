@@ -15,18 +15,23 @@
         <div class="col-12 col-md-12 col-lg-12">
           <div class="row justify-content-center">
             <!--end of col-->
-            <div class="input-group col-sm-8">
+            <div class="input-group col-sm-6">
               <div class="input-group-addon"><i class="fa fa-search"></i></div>
               <input class="form-control form-control-lg form-control-borderless" type="search"
                 [ngModelOptions]="{standalone: true}" [(ngModel)]="Search"
                 placeholder="Buscar producto">
             </div>
             <!--end of col-->
-            <div class="col-sm-4">
+            <div class="col-sm-2">
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-user-plus h4 text-body"></i> Agregar Productos
               </button>
             </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-info" data-toggle="modal" (click)="secondModal.show()">
+                  <i class="mdi mdi-basket-fill h4 text-body"></i> Cargar productos masivamente
+                </button>
+              </div>
           </div>
         </div>
         <!--end of col-->
@@ -255,3 +260,28 @@
     </div>
   </div>
   </div>
+
+
+<!--Ventana emergente actualizar base de datos-->
+
+<div bsModal #secondModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-primary" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Cargar masiva de productos</h4>
+        <button type="button" class="close" (click)="secondModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-sm-12">
+          <input type="file" (change)="seleccionarArchivos($event)">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" (click)="onUploadBaseDatos()"> Cargar</button>
+      </div>
+    </div>
+  </div>
+</div>

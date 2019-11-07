@@ -22,8 +22,6 @@ export class ProductoService {
     })
   }
 
-
-
   GetProductos(callback)
   {
     let url = URL_SERVICIOS + '/productos';
@@ -54,5 +52,19 @@ export class ProductoService {
     })
 
   }
+
+    //Objeto creado para importar base de datos externas
+    OnUploadBaseDatos(type: string, selectedFile: File, tenant_id: string, callback) {
+      let formData: FormData = new FormData();
+      formData.append('uploadFile', selectedFile, selectedFile.name);
+      formData.append('type', type);
+      formData.append('tenant_id', tenant_id);
+      let url = URL_SERVICIOS + '/productos/upload/csv';
+      this.http.post(url, formData).subscribe((resp:any) => {
+        callback(resp);
+      }, error => {
+        callback(error);
+      });
+    }
 
 }
