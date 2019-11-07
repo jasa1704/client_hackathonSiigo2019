@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { MatInputModule } from '@angular/material/input';
 import { DataTableModule } from "angular-6-datatable";
@@ -37,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PipesModule,
     ReactiveFormsModule,
     DataTableModule,
+    TooltipModule.forRoot(),
   ]
 })
 export class PagesModule { }

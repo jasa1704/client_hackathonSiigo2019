@@ -23,7 +23,7 @@
                     [(ngModel)]="clientSeleccionado.first_name">
                   </div>
                   <div class="col-md-2">
-                    <button type="button" class="btn"><i class="fa fa-plus-square" data-toggle="modal" data-target="#seleccionarClienteLabel"></i> </button>
+                    <button type="button" class="btn"><i class="fa fa-plus-square" tooltip="Seleccionar Cliente" data-toggle="modal" data-target="#seleccionarClienteLabel"></i> </button>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
               <div class="col-4">
                 <input class="form-control" id="cliente" placeholder="Producto" type="text">
               </div>
-              <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
+              <button type="button" class="btn" data-toggle="modal" tooltip="Seleccionar Producto" data-target="#exampleModal"><i
                   class="fa fa-plus-square"></i> </button>
               <div class="col-2">
                 <input class="form-control" id="fecha" placeholder="Cant." type="number">
@@ -214,7 +214,7 @@
                           <td>{{item.surname}}</td>
                           <td>{{item.email}}</td>
                           <td class="text-center">
-                            <button type="button" data-dismiss="modal" class="fa fa-plus-square" aria-label="Close" (click)="clientSeleccionado=item">
+                            <button type="button" data-dismiss="modal" tooltip="Seleccionar Cliente" class="fa fa-plus-square" aria-label="Close" (click)="clientSeleccionado=item">
                             </button>
                           </td>
                         </tr>
