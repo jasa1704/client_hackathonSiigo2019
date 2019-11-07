@@ -13,20 +13,20 @@ import { BillComponent } from './bill/bill.component';
 
 // Pipe Module
 import { PipesModule } from '../pipes/pipes.module';
-import { DataFilterPipe } from './datafilterpipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     ClientComponent,
     ProductComponent,
-    BillComponent,
-    DataFilterPipe
+    BillComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
     ChartsModule,
+    ModalModule.forRoot(),
     PipesModule,
     DataTableModule,
   ]

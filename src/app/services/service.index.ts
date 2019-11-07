@@ -1,5 +1,6 @@
 
 // Guards
+export { ProductoService } from './producto/producto.service';
 export { UsuarioService } from './usuario/usuario.service';
 export { PatientService } from './patient/patient.service';
 export { LoginGuardGuard } from './guards/login-guard.guard';
@@ -12,4 +13,5 @@ export { SidebarService } from './shared/sidebar.service';
 export { PagerService } from './shared/pager.service';
 export { UtilitiesService } from './shared/utilities.service';
 export { FilesService } from './shared/files.service';
+
 

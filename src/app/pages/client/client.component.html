@@ -36,7 +36,7 @@
       <div class="row justify-content-center">
         <div class="col-sm-12">
           <table class="table table-responsive" *ngIf="client1.length > 0; else noDBPacientes">
-            <table class="table table-striped table-bordered" [mfData]="client1 | dataFilter : Search"
+            <table class="table table-striped table-bordered" [mfData]="client1 | search : Search : client1[0]"
               #mf="mfDataTable" cellspacing="0" width="100%">
               <thead>
                 <tr>

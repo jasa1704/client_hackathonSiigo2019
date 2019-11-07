@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { ImagenPipe } from './imagen.pipe';
+import { SearchPipe } from './search.pipe';
 
 
 
 @NgModule({
   imports: [ ],
   declarations: [
-    ImagenPipe
+    ImagenPipe,
+    SearchPipe
   ],
   exports: [
-    ImagenPipe
+    ImagenPipe,
+    SearchPipe
   ]
 })
 export class PipesModule { }
