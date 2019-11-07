@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../interfaces/index'
 import swal from 'sweetalert';
 
@@ -7,6 +7,7 @@ import { Usuario } from '../../models/usuario.model';
 
 //Servicio
 import { ProductoService, PagerService, UsuarioService } from '../../services/service.index';
+
 
 @Component({
   selector: 'app-product',
@@ -25,16 +26,21 @@ export class ProductComponent implements OnInit {
 
   // Seleccionar bases de datos
   selectedFile = null;
+  private allItems: any[];
+  public pager: any = {};
+  public pagedItems = [];
+  predictive;
+  selectedItem
+  reset
+  queryUsed
+  searchError
+
 
   constructor(
     private productoService: ProductoService,
     private pagerService: PagerService,
     public _usuarioService: UsuarioService
   ) { }
-
-  private allItems: any[];
-  public pager: any = {};
-  public pagedItems = [];
 
   ngOnInit() {
     this.usuario = this._usuarioService.usuario;
