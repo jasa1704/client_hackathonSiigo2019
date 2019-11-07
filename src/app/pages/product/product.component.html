@@ -19,28 +19,33 @@
 
 
 
-            <div class="input-group col-sm-12">
+            <div class="input-group col-sm-6">
               <div class="input-group-addon"><i class="fa fa-search"></i></div>
               <input class="form-control form-control-lg form-control-borderless" type="search"
               (ngModelChange)="autocomplete($event)" [(ngModel)]="Search" [ngModelOptions]="{standalone: true}"
                 placeholder="Buscar producto">
 
             </div>
-            <input class="select2-search__field" [ngModelOptions]="{standalone: true}"  type="search" tabindex="0" autocomplete="on" autocorrect="off"
-              autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" [(ngModel)]="tipsBusqueda" 
-              style="width: 1187.2px;">
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fa fa-user-plus h4 text-body"></i> Agregar Productos
+                </button>
+              </div>
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-info" data-toggle="modal" (click)="secondModal.show()">
+                  <i class="mdi mdi-basket-fill h4 text-body"></i> Cargar productos masivamente
+                </button>
+              </div>
+              <div class="input-group col-sm-6">
+                  <input class="select2-search__field" [ngModelOptions]="{standalone: true}"  type="search" tabindex="0" autocomplete="on" autocorrect="off"
+                  autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" [(ngModel)]="tipsBusqueda" 
+                  style="width: 1187.2px;">
+              </div>
+              <div class="input-group col-sm-6">
+                </div>
 
             <!--end of col-->
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-user-plus h4 text-body"></i> Agregar Productos
-              </button>
-            </div>
-            <div class="col-sm-4">
-              <button type="button" class="btn btn-info" data-toggle="modal" (click)="secondModal.show()">
-                <i class="mdi mdi-basket-fill h4 text-body"></i> Cargar productos masivamente
-              </button>
-            </div>
+            
           </div>
         </div>
         <!--end of col-->

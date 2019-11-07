@@ -51,7 +51,16 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.usuario = this._usuarioService.usuario;
     this.GetAllProducts();
-    this.database = ["Hola", "Siigo", "Factura","Mujer","Mundo", "Dias", "Programacion"]
+    this.database = ["Hola", "Siigo", "Factura","Mujer","Mundo", "Dias", "Programacion",'Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
+    'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', "Programador", 'Bucharest',
+    'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin', "Programming",
+    'Düsseldorf', 'Essen', 'Frankfurt', 'Genoa', 'Glasgow', 'Gothenburg',
+    'Hamburg', 'Hannover', 'Helsinki', 'Kraków', 'Leeds', 'Leipzig', 'Lisbon',
+    'London', 'Madrid', 'Manchester', 'Marseille', 'Milan', 'Munich', 'Málaga',
+    'Naples', 'Palermo', 'Paris', 'Poznań', 'Prague', 'Riga', 'Rome',
+    'Rotterdam', 'Seville', 'Sheffield', 'Sofia', 'Stockholm', 'Stuttgart',
+    'The Hague', 'Turin', 'Valencia', 'Vienna', 'Vilnius', 'Warsaw', 'Wrocław',
+    'Zagreb', 'Zaragoza', 'Łódź']
   }
 
   setPage(page: number) {
