@@ -66,6 +66,7 @@
                   <div class="u-img"><img [src]="usuario.img | imagen: 'client'" alt="client"></div>
                   <div class="u-text">
                     <h4> {{ usuario.email }} </h4>
+                    <a (click)="modalActualizarPerfil()" class="btn btn-rounded btn-success btn-sm">Perfil</a>
                   </div>
                 </div>
               </li>
