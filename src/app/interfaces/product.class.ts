@@ -1,7 +1,7 @@
 class Producto {
-    public  nombre: string;
+    public _id: string;
+    public nombre: string;
     public valor: Number;
-
 }
 
 export{ Producto }

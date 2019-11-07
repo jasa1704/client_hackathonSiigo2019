@@ -10,19 +10,6 @@ export class SearchPipe implements PipeTransform {
     const words = this.splitText(Search);
     let numErrors = 0;
 
-    // let object = {
-    //   numero_contrato: null,
-    //   objeto_contrato: null,
-    //   valor_contrato: null,
-    //   plazo_ejecucion: null,
-    //   documento_tercero: null,
-    //   razon_social_tercero: null,
-    //   modalidad: null,
-    //   procedimiento_causal: null,
-    //   fecha_creacion: null,
-    //   fecha_inicio: null,
-    // }
-
     if (items && items.length) {
       return items.filter(item => {
         for (const palabraComparar of words) {
@@ -46,8 +33,6 @@ export class SearchPipe implements PipeTransform {
     } else {
       return items;
     }
-
-  
   }
 
   splitText(search: string) {
