@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { MatInputModule } from '@angular/material/input';
 import { DataTableModule } from "angular-6-datatable";
@@ -18,6 +19,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectModule } from 'ng-select';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    SelectModule,
     SharedModule,
     FormsModule,
     ChartsModule,
@@ -37,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PipesModule,
     ReactiveFormsModule,
     DataTableModule,
+    TooltipModule.forRoot(),
   ]
 })
 export class PagesModule { }

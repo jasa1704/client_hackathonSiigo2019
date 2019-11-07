@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
   public Search: any = '';
 
   ngOnInit() {
-    // this.cargarPacientes();
+
   }
 
   setPage(page: number) {

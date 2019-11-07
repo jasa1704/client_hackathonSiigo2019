@@ -42,21 +42,23 @@ export class SearchPipe implements PipeTransform {
     let palabras: any = [];
     while (search.indexOf(' ') !== -1) {
       index = search.indexOf(' ');
-      console.log('index', index)
-      console.log('search',search)
       palabra = search.substring(0, index);
-      console.log('palabra', palabra)
       palabras.push(palabra);
       if (index + 1 === search.length) {
         existeEspacioAlFinal = true;
         break;
       } else {
-        debugger
         search = search.substring(index + 1, search.length);
       }
     }
     if (!existeEspacioAlFinal) palabras[palabras.length] = search;
     return palabras;
   };
+
+  wordsDataBase(newWord: string){
+
+    
+
+  }
 
 }
