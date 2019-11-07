@@ -39,7 +39,7 @@ export class ProductoService {
   {
     let url = URL_SERVICIOS + '/productos';
     this.http.post(url, producto).subscribe((resp:any)=>{
-      swal('Usuario creado', producto.nombre, 'success');
+      swal('Producto creado', producto.nombre, 'success');
       return callback(resp);
     })
 
@@ -49,6 +49,7 @@ export class ProductoService {
   {
     let url = URL_SERVICIOS + '/productos/'+producto._id;
     this.http.post(url, producto).subscribe((resp:any)=>{
+      swal('Producto actualizado ', producto.nombre, 'success');
       return callback(resp);
     })
 

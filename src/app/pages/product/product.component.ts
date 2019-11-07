@@ -53,13 +53,8 @@ export class ProductComponent implements OnInit {
   }
 
   EditarProducto() {
-
-    console.log(this.productoEdit);
-
     this.productoService.EditProducto(this.productoEdit, res => {
-
-      console.log(res);
-
+      this.GetAllProducts();
     })
   }
 

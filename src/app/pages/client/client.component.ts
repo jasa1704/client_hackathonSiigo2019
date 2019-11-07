@@ -59,6 +59,12 @@ export class ClientComponent implements OnInit {
     })
   }
 
+  EditarClient() {
+    this.clientesService.EditProducto(this.clientEdit, res => {
+      this.GetAllClients();
+    })
+  }
+
   restablcerCrearCliente() {
     this.clientAdd = new Client();
   }

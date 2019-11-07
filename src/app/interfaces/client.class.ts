@@ -1,4 +1,5 @@
 class Client {
+  public _id:string;
   public identification_type: string;
   public identification_number: number;
   public first_name: string;

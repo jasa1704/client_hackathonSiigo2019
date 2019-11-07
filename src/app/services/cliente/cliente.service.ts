@@ -34,4 +34,16 @@ export class ClientesService {
 
   }
 
+  EditProducto(cliente: Client, callback)
+  {
+    let url = URL_SERVICIOS + '/clientes/'+cliente._id;
+    this.http.post(url, cliente).subscribe((resp:any)=>{
+      swal('Cliente editado', cliente.email, 'success');
+      return callback(resp);
+    }, error => {
+      swal('Problema en el servidor', error.error.mensaje, 'error');
+    })
+
+  }
+
 }
