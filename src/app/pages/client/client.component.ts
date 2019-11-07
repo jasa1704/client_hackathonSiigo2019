@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 
 //Interfaces
+import { Usuario } from '../../models/usuario.model';
 import { Client } from '../../interfaces/index'
 
 //Servicios
 import { PagerService } from '../../services/shared/pager.service'
+import { ClientesService, UsuarioService } from '../../services/service.index';
 
 @Component({
   selector: 'app-client',
@@ -15,15 +15,15 @@ import { PagerService } from '../../services/shared/pager.service'
 })
 export class ClientComponent implements OnInit {
 
-  client = new Client();
+  usuario: Usuario;
+  public clientAdd = new Client();
+  public clientEdit = new Client();
+  public clientEliminar = new Client();
+  public clientVer = new Client();
   client1: Client[] = [];
 
-  constructor(private http: HttpClient, private pagerService: PagerService) {
-    this.getJSON().subscribe(data => {
-      this.client1 = data;
-      this.allItems = data;
-      this.setPage(1);
-    });
+  constructor(private pagerService: PagerService, private clientesService: ClientesService, 
+    private _usuarioService: UsuarioService) {
   }
 
   private allItems: any[];
@@ -31,11 +31,9 @@ export class ClientComponent implements OnInit {
   public pagedItems = [];
   public Search: any = '';
 
-  public getJSON(): Observable<any> {
-    return this.http.get("./assets/data/data1.json");
-  }
-
   ngOnInit() {
+    this.usuario = this._usuarioService.usuario;
+    this.GetAllClients();
   }
 
   setPage(page: number) {
@@ -44,6 +42,38 @@ export class ClientComponent implements OnInit {
 
     // get current page of items
     this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+
+  GetAllClients()
+  {
+    this.clientesService.GetClientes(res=>{
+      this.client1 = res.clients;
+      this.allItems = res.clients;
+      this.setPage(1);
+    })
+  }
+
+  AddNewClient() {
+    this.clientAdd.tenant_id = this.usuario._id;
+    this.clientesService.AddCliente(this.clientAdd, res => {
+      this.GetAllClients();
+    })
+  }
+
+  EditarClient() {
+    this.clientesService.EditCliente(this.clientEdit, res => {
+      this.GetAllClients();
+    })
+  }
+
+  EliminarProducto(){
+    this.clientesService.EliminarCliente(this.clientEliminar, res=>{
+      this.GetAllClients();
+    })
+  }
+
+  restablcerCrearCliente() {
+    this.clientAdd = new Client();
   }
 
 }

@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService, PagerService } from '../../services/service.index';
 import { Producto } from '../../interfaces/index'
+import swal from 'sweetalert';
 
+//Interfaces
+import { Usuario } from '../../models/usuario.model';
+
+//Servicio
+import { ProductoService, PagerService, UsuarioService } from '../../services/service.index';
 
 
 @Component({
@@ -11,6 +16,7 @@ import { Producto } from '../../interfaces/index'
 })
 export class ProductComponent implements OnInit {
 
+  usuario: Usuario;
   public productos = [];
   public productoAdd = new Producto();
   public productoEdit = new Producto();
@@ -18,6 +24,8 @@ export class ProductComponent implements OnInit {
   public productoVer = new Producto();
   public Search = '';
 
+  // Seleccionar bases de datos
+  selectedFile = null;
   private allItems: any[];
   public pager: any = {};
   public pagedItems = [];
@@ -26,16 +34,25 @@ export class ProductComponent implements OnInit {
   reset
   queryUsed
   searchError
- 
+
 
   constructor(
     private productoService: ProductoService,
-    private pagerService: PagerService
+    private pagerService: PagerService,
+    public _usuarioService: UsuarioService
   ) { }
 
   ngOnInit() {
-
+    this.usuario = this._usuarioService.usuario;
     this.GetAllProducts();
+  }
+
+  setPage(page: number) {
+    // get pager object from service
+    this.pager = this.pagerService.getPager(this.allItems.length, page);
+
+    // get current page of items
+    this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 
   GetAllProducts() {
@@ -47,25 +64,21 @@ export class ProductComponent implements OnInit {
   }
 
   AddNewProduct() {
+    this.productoAdd.tenant_id = this.usuario._id;
     this.productoService.AddProducto(this.productoAdd, res => {
       this.GetAllProducts();
     })
-
   }
 
   EditarProducto() {
-
-    console.log(this.productoEdit);
-
     this.productoService.EditProducto(this.productoEdit, res => {
-
-      console.log(res);
-
+      this.GetAllProducts();
     })
   }
 
-  EliminarProducto() {
-    this.productoService.EliminarProducto(this.productoEliminar, res => {
+  EliminarProducto()
+  {
+    this.productoService.EliminarProducto(this.productoEliminar, res=>{
       console.log(res);
       this.GetAllProducts();
 
@@ -76,12 +89,25 @@ export class ProductComponent implements OnInit {
     this.productoAdd = new Producto();
   }
 
-  setPage(page: number) {
-    // get pager object from service
-    this.pager = this.pagerService.getPager(this.allItems.length, page);
+    /* ################## Cargar base de datos ############################ */
 
-    // get current page of items
-    this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
-  }
+    seleccionarArchivos(event) {
+      this.selectedFile = event.target.files[0];
+    }
+
+    onUploadBaseDatos() {
+      if (this.selectedFile != null) {
+        this.productoService.OnUploadBaseDatos('productos', this.selectedFile, this.usuario._id, res => {
+          if (res.ok) {
+            swal('Carga exitosa', 'los productos fueron cargados exitosamente', 'success');
+            this.GetAllProducts();
+          } else {
+            swal('Problemas con el servidor', 'Error al cargar los productos', 'error');
+          }
+        })
+      } else {
+        swal('Advertencia ', 'Debes seleccionar y cargar la base de datos antes de continuar', 'warning');
+      }
+    }
 
 }
