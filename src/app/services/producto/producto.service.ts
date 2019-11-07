@@ -13,6 +13,14 @@ export class ProductoService {
 
   ) { }
 
+  EliminarProducto(producto, callback){
+    let url = URL_SERVICIOS + '/productos/delete/'+producto._id;
+
+    this.http.post(url, producto).subscribe((res:any)=>{
+      return callback(res);
+    })
+  }
+
 
 
   GetProductos(callback)

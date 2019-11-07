@@ -55,6 +55,15 @@ export class ProductComponent implements OnInit {
     this.productoService.EditProducto(this.productoEdit, res => {
 
       console.log(res);
+      
+    })
+  }
+  
+  EliminarProducto()
+  {
+    this.productoService.EliminarProducto(this.productoEliminar, res=>{
+      console.log(res);
+      this.GetAllProducts();
 
     })
   }
