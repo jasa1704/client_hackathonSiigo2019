@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
-import { Producto } from '../../interfaces/index'
+import { Producto, Item } from '../../interfaces/index'
 
 
 
@@ -49,6 +49,16 @@ export class ProductoService {
     this.http.post(url, producto).subscribe((resp:any)=>{
       return callback(resp);
     })
+
+  }
+
+  CrearItem(item: Item, callback)
+  {
+    let url = URL_SERVICIOS + '/items/create';
+    this.http.post(url, item).subscribe((resp:any) =>{
+      return(callback);
+    })
+
 
   }
 

@@ -67,18 +67,18 @@
             <div class="row">
 
               <div class="col-4">
-                <input class="form-control" id="cliente" placeholder="Producto" type="text">
+                <input class="form-control" id="cliente" placeholder="Producto" [(ngModel)]="producto.nombre" type="text">
               </div>
-              <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
+              <button type="button" class="btn" data-toggle="modal" data-target="#productosModal"><i
                   class="fa fa-plus-square"></i> </button>
               <div class="col-2">
-                <input class="form-control" id="fecha" placeholder="Cant." type="number">
+                <input class="form-control" id="fecha" placeholder="Cant."  [(ngModel)]="item.quantity" type="number">
               </div>
               <div class="col-2">
-                <input class="form-control" id="valor" placeholder="Valor c/u" type="number">
+                <input class="form-control" id="valor" placeholder="Valor c/u" [(ngModel)]="item.unit_value" type="number">
               </div>
               <div class="col-2">
-                <input class="form-control" id="total" placeholder="Valor Total" type="number">
+                <input class="form-control" id="total" placeholder="Valor Total" [(ngModel)]="item.item_value" type="number">
               </div>
               <button type="button" class="btn btn-success"> Agregar</button>
 
@@ -88,6 +88,34 @@
             <br>
             <br>
             <h3 class="panel-title">Detalle</h3>
+
+            <table class="table table-condensed" *ngIf="items.length > 0">
+                <table class="table table-striped table-bordered" [mfData]="items | search : Search : productos[0]"
+                  #mf="mfDataTable" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th class="text-center" scope="col">Producto</th>
+                      <th class="text-center" scope="col">Cantidad</th>
+                      <th class="text-center" scope="col">Precio unitario</th>
+                      <th class="text-center" scope="col">Total</th>
+                     
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of mf.data; let i = index">
+                      <th class="text-center" scope="row">{{ i+1 }}</th>
+                      <td class="text-center">{{item.nombre }}</td>
+                      <td class="text-center">{{item.precio }}</td>
+                      <td class="text-center">
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary fa fa-plus-square" data-toggle="modal"
+                          (click)="producto=item;" tooltip="Ver Producto">
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </table>
 
 
             <table class="table table-condensed">
@@ -129,40 +157,57 @@
   </div> <!-- container -->
 
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="productosModal" tabindex="-1" role="dialog" aria-labelledby="productosModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Datos del Producto</h5>
+          <h5 class="modal-title" id="productosModalLabel">Seleccione un producto</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <div class="row">
-                <div class="col">
-                  <label for="recipient-name" class="col-form-label">Nombre</label>
-                  <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
-                    [(ngModel)]="productoAdd.nombre">
-                </div>
 
-                <div class="col">
-                  <label for="recipient-name" class="col-form-label">Precio</label>
-                  <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
-                    [(ngModel)]="productoAdd.precio">
-                </div>
+            <div class="input-group col-sm-12">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                <input class="form-control form-control-lg form-control-borderless" type="search"
+                  [ngModelOptions]="{standalone: true}" [(ngModel)]="Search"
+                  placeholder="Buscar por nombre o precio">
               </div>
+
+              <br>
+
+
+          <div class="row justify-content-center">
+            <div class="col-sm-12">
+              <table class="table table-responsive" *ngIf="productos.length > 0; else noDBProductos">
+                <table class="table table-striped table-bordered" [mfData]="productos | search : Search : productos[0]"
+                  #mf="mfDataTable" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th class="text-center" scope="col">#</th>
+                      <th class="text-center" scope="col">Nombre</th>
+                      <th class="text-center" scope="col">Precio</th>
+                      <th class="text-center" scope="col">Seleccionar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of mf.data; let i = index">
+                      <th class="text-center" scope="row">{{ i+1 }}</th>
+                      <td class="text-center">{{item.nombre }}</td>
+                      <td class="text-center">{{item.precio }}</td>
+                      <td class="text-center">
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary fa fa-plus-square" data-toggle="modal"
+                          (click)="producto=item;" tooltip="Ver Producto">
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </table>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-success"
-            (click)="restablcerCrearProducto()">Restrablecer</button>
-          <button type="button" class="btn btn-success" (click)='AddNewProduct()'>Crear Producto</button>
+           
+          </div>
         </div>
       </div>
-    </div>
-  </div>
