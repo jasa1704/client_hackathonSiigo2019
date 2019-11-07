@@ -14,8 +14,7 @@ export class DataFilterPipe implements PipeTransform {
         for (let palabraComparar of palabras) {
           if ((palabraComparar && item.first_name.toString().toLowerCase().indexOf(palabraComparar.toLowerCase()) === -1)
             && (palabraComparar && item.last_name.toLowerCase().indexOf(palabraComparar.toLowerCase()) === -1)
-            && (palabraComparar && item.identification_card.toLowerCase().indexOf(palabraComparar.toLowerCase()) === -1)
-            && (palabraComparar && item.age.toLowerCase().indexOf(palabraComparar.toLowerCase()) === -1)){
+            && (palabraComparar && item.identification_number.toLowerCase().indexOf(palabraComparar.toLowerCase()) === -1)){
             return false;
           }
         }

@@ -1,89 +1,112 @@
 [
   {
+    "identification_type": "CC",
+    "identification_number": "68",
     "first_name": "Daniel",
-    "last_name": "Gomez",
-    "identification_card": "1086362007",
-    "age": "68",
-    "phone": 3132115024,
-    "state": true
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Luis",
-    "last_name": "Perez",
-    "identification_card": "1086362007",
-    "age": "70",
-    "phone": 3132115024,
-    "state": false
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Karen",
-    "last_name": "Diaz",
-    "identification_card": "1086362007",
-    "age": "53",
-    "phone": 3132115024,
-    "state": false
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Juan",
-    "last_name": "Montenegro",
-    "identification_card": "1086362007",
-    "age": "57",
-    "phone": 3132115024,
-    "state": true
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Dario",
-    "last_name": "Burbano",
-    "identification_card": "1086362007",
-    "age": "46",
-    "phone": 3132115024,
-    "state": true
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Cristian",
-    "last_name": "Hernandez",
-    "identification_card": "1086362007",
-    "age": "32",
-    "phone": 3132115024,
-    "state": true
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Sofia",
-    "last_name": "Martinez",
-    "identification_card": "1086362007",
-    "age": "36",
-    "phone": 3132115024,
-    "state": true
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Margarita",
-    "last_name": "Fonseca",
-    "identification_card": "1086362007",
-    "age": "27",
-    "phone": 3132115024,
-    "state": false
-  },{
-    "first_name": "Paola",
-    "last_name": "Samboni",
-    "identification_card": "1086362007",
-    "age": "35",
-    "phone": 3132115024,
-    "state": true
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Carlos",
-    "last_name": "Molano",
-    "identification_card": "1086362007",
-    "age": "45",
-    "phone": 3132115024,
-    "state": true
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   },
   {
-    "first_name": "Jhonatan",
-    "last_name": "Molano",
-    "identification_card": "1086362007",
-    "age": "45",
-    "phone": 3132115024,
-    "state": true
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
+  },
+  {
+    "identification_type": "CC",
+    "identification_number": "68",
+    "first_name": "Daniel",
+    "second_name": "Gomez",
+    "surname": "Gomez",
+    "second_surname": "Gomez",
+    "phone": "31423233433",
+    "email": "daniel@gmail.com"
   }
 ]
