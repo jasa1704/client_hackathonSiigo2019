@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 //Interfaces
+import { Usuario } from '../../models/usuario.model';
 import { Client } from '../../interfaces/index'
 
 //Servicios
 import { PagerService } from '../../services/shared/pager.service'
-import { ClientesService } from '../../services/service.index';
+import { ClientesService, UsuarioService } from '../../services/service.index';
 
 @Component({
   selector: 'app-client',
@@ -14,10 +15,14 @@ import { ClientesService } from '../../services/service.index';
 })
 export class ClientComponent implements OnInit {
 
-  client = new Client();
+  usuario: Usuario;
+  public clientAdd = new Client();
+  public clientEdit = new Client();
+  public clientEliminar = new Client();
+  public clientVer = new Client();
   client1: Client[] = [];
 
-  constructor(private pagerService: PagerService, private clientesService: ClientesService) {
+  constructor(private pagerService: PagerService, private clientesService: ClientesService, public _usuarioService: UsuarioService,) {
   }
 
   private allItems: any[];
@@ -26,6 +31,7 @@ export class ClientComponent implements OnInit {
   public Search: any = '';
 
   ngOnInit() {
+    this.usuario = this._usuarioService.usuario;
     this.GetAllClients();
   }
 
@@ -44,6 +50,17 @@ export class ClientComponent implements OnInit {
       this.allItems = res.clients;
       this.setPage(1);
     })
+  }
+
+  AddNewClient() {
+    this.clientAdd.tenant_id = this.usuario._id;
+    this.clientesService.AddCliente(this.clientAdd, res => {
+      this.GetAllClients();
+    })
+  }
+
+  restablcerCrearCliente() {
+    this.clientAdd = new Client();
   }
 
 }

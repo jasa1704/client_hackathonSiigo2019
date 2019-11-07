@@ -3,7 +3,6 @@
 export { ClientesService } from './cliente/cliente.service';
 export { ProductoService } from './producto/producto.service';
 export { UsuarioService } from './usuario/usuario.service';
-export { PatientService } from './patient/patient.service';
 export { LoginGuardGuard } from './guards/login-guard.guard';
 export { AdminGuard } from './guards/admin.guard';
 export { VerificaTokenGuard } from './guards/verifica-token.guard';

@@ -32,8 +32,6 @@ export class ProductComponent implements OnInit {
     this.GetAllProducts();
   }
 
-
-
   GetAllProducts() {
     this.productoService.GetProductos(res => {
       this.productos = res.productos;
@@ -46,7 +44,6 @@ export class ProductComponent implements OnInit {
     this.productoService.AddProducto(this.productoAdd, res => {
       this.GetAllProducts();
     })
-
   }
 
   EditarProducto() {

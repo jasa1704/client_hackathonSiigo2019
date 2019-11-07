@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
+import swal from 'sweetalert';
+
+//Interfaz
 import { Producto } from '../../interfaces/index'
-
-
 
 @Injectable()
 export class ProductoService {
@@ -26,18 +27,19 @@ export class ProductoService {
   GetProductos(callback)
   {
     let url = URL_SERVICIOS + '/productos';
-    
+
     this.http.get(url).subscribe(( resp:any)=>{
       return callback(resp);
     }, error => {
-      
+
     })
   }
-  
+
   AddProducto(producto: Producto, callback)
   {
-    let url = URL_SERVICIOS + '/productos/';
+    let url = URL_SERVICIOS + '/productos';
     this.http.post(url, producto).subscribe((resp:any)=>{
+      swal('Usuario creado', producto.nombre, 'success');
       return callback(resp);
     })
 

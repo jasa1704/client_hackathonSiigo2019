@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import swal from 'sweetalert';
 
+//Interfaz
+import { Client } from '../../interfaces/index'
+
 @Injectable()
 export class ClientesService {
 
@@ -14,7 +17,19 @@ export class ClientesService {
     this.http.get(url).subscribe((resp: any) => {
       return callback(resp);
     }, error => {
-      swal('Error en el servidor', error.error.mensaje, 'error');
+      swal('Problema en el servidor', error.error.mensaje, 'error');
+    })
+
+  }
+
+  AddCliente(cliente: Client, callback)
+  {
+    let url = URL_SERVICIOS + '/clientes';
+    this.http.post(url, cliente).subscribe((resp:any)=>{
+      swal('Cliente creado', cliente.email, 'success');
+      return callback(resp);
+    }, error => {
+      swal('Problema en el servidor', error.error.mensaje, 'error');
     })
 
   }

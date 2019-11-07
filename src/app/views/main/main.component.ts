@@ -4,13 +4,9 @@ import { Http } from '@angular/http';
 import Config from '../../config/config';
 import * as jsPDF from 'jspdf';
 
-
-//Interfaces
-import { Patient } from '../../interfaces/index'
-
 //Servicios
 import { PagerService } from '../../services/shared/pager.service'
-import { PatientService, FilesService } from '../../services/service.index';
+import { FilesService } from '../../services/service.index';
 
 declare function init_plugins();
 
@@ -21,14 +17,14 @@ declare function init_plugins();
 })
 export class MainComponent implements OnInit {
 
-  patient = new Patient();
-  patients1: Patient[] = [];
+  // patient = new Patient();
+  // patients1: Patient[] = [];
 
   constructor(
     private router: Router,
     private fs: FilesService,
-    private http: Http, 
-    private pagerService: PagerService, private patientService: PatientService) {
+    private http: Http,
+    private pagerService: PagerService) {
     init_plugins();
   }
 
@@ -38,7 +34,7 @@ export class MainComponent implements OnInit {
   public Search: any = '';
 
   ngOnInit() {
-    this.cargarPacientes();
+    // this.cargarPacientes();
   }
 
   setPage(page: number) {
@@ -54,26 +50,26 @@ export class MainComponent implements OnInit {
     this.router.navigateByUrl('/patient/clinicHistory');
   }
 
-  crearPaciente() {
-    this.patientService.crearPatient(this.patient, res => {
-      if (res.ok === true) {
-        this.router.navigate(['/main']);
-      }
-    });
-  }
+  // crearPaciente() {
+  //   this.patientService.crearPatient(this.patient, res => {
+  //     if (res.ok === true) {
+  //       this.router.navigate(['/main']);
+  //     }
+  //   });
+  // }
 
-  cargarPacientes() {
-    this.patientService.cargarPatients(patients2 => {
-      this.patients1 = patients2;
-      this.allItems = patients2;
-      this.setPage(1);
-    }
-    );
-  }
+  // cargarPacientes() {
+  //   this.patientService.cargarPatients(patients2 => {
+  //     this.patients1 = patients2;
+  //     this.allItems = patients2;
+  //     this.setPage(1);
+  //   }
+  //   );
+  // }
 
-  restablcerCrearPaciente() {
-    this.patient = new Patient();
-  }
+  // restablcerCrearPaciente() {
+  //   this.patient = new Patient();
+  // }
 
   // /////////////////////////// PDF ///////////////////////////////
   async downloadReport(ids) {
@@ -110,17 +106,17 @@ export class MainComponent implements OnInit {
 
     this.fs.createTable(doc, body, bodyPaper.startWithTitle, null, paper.width / 2);
     this.fs.createTable(doc, '#my-table', doc.lastAutoTable.finalY, 'Tabla 1', paper.width,'l');
-    
+
     //await this.fs.generateImagesPdf(ids, doc, margin, paper);
 
-   
-    
+
+
     curPosition = await this.fs.generateImagePdf(doc, 'my-table', doc.lastAutoTable.finalY, paper.width/2, 'Image 1','center');
     // curPosition = await this.fs.generateImagePdf(doc, 'modal1', curPosition, paper.width/2, 'Image 2','center');
     // curPosition = await this.fs.generateImagePdf(doc, 'modal1', curPosition, paper.width, 'Image 3');
     // curPosition = await this.fs.generateImagePdf(doc, 'modal1', curPosition, paper.width/2, 'Image 4');
     // curPosition = await this.fs.generateImagePdf(doc, 'modal1', curPosition, paper.width, 'Image 5');
-    
+
     //doc.movePage(2, 1);
     //this.fs.createTable(doc, '#my-table', curPosition, 'Tabla 1', paper.width);
 

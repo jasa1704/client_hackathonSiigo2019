@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div id="main-wrapper">
+<!-- <div id="main-wrapper">
 
   <app-header-main></app-header-main>
 
@@ -22,28 +22,28 @@
             <div class="col-auto">
               <i class="fa fa-search h4 text-body"></i>
             </div>
-            <br>
+            <br> -->
             <!--end of col-->
-            <div class="col">
+            <!-- <div class="col">
               <input class="form-control form-control-lg form-control-borderless" type="search"
                 [ngModelOptions]="{standalone: true}" [(ngModel)]="Search"
                 placeholder="Buscar por nombre, numero de identificación ó edad">
-            </div>
+            </div> -->
             <!--end of col-->
-            <div class="col-auto">
+            <!-- <div class="col-auto">
               <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-user-plus h4 text-body"></i> Agregar Paciente
               </button>
               <button type="button" (click)="downloadReport(0)" class="btn btn-lg btn-black" data-toggle="modal">
                  Descargar Reporte
               </button>
-            </div>
+            </div> -->
             <!--end of col-->
-          </div>
+          <!-- </div>
         </form>
-      </div>
+      </div> -->
       <!--end of col-->
-    </div>
+    <!-- </div>
 
     <div class="row justify-content-center">
       <div class="col-10">
@@ -83,10 +83,10 @@
               </tr>
             </tbody>
           </table>
-        </table>
+        </table> -->
 
         <!-- pager -->
-        <nav aria-label="Page navigation example">
+        <!-- <nav aria-label="Page navigation example">
           <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-center">
             <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
               <a class="page-link" (click)="setPage(1)"><i class="mdi mdi-chevron-double-left"></i></a>
@@ -120,11 +120,11 @@
 
   <app-footer></app-footer>
 
-</div>
+</div> -->
 
 
 <!-- Modal crear paciente -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -142,7 +142,7 @@
                 <label for="recipient-name" class="col-form-label">Nombre</label>
                 <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="producto.nombre">
               </div>
-             
+
               <div class="col">
                 <label for="recipient-name" class="col-form-label">Precio</label>
                 <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="producto.precio">
@@ -157,5 +157,5 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 

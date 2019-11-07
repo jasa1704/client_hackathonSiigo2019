@@ -14,20 +14,20 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-12 col-lg-12">
           <div class="row justify-content-center">
-              <!--end of col-->
-              <div class="input-group col-sm-8">
-                <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                <input class="form-control form-control-lg form-control-borderless" type="search"
-                  [ngModelOptions]="{standalone: true}" [(ngModel)]="Search"
-                  placeholder="Buscar por nombre, numero de identificación ó edad">
-              </div>
-              <!--end of col-->
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                  <i class="fa fa-user-plus h4 text-body"></i> Agregar Clientes
-                </button>
-              </div>
+            <!--end of col-->
+            <div class="input-group col-sm-8">
+              <div class="input-group-addon"><i class="fa fa-search"></i></div>
+              <input class="form-control form-control-lg form-control-borderless" type="search"
+                [ngModelOptions]="{standalone: true}" [(ngModel)]="Search"
+                placeholder="Buscar por nombre, numero de identificación ó edad">
             </div>
+            <!--end of col-->
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-user-plus h4 text-body"></i> Agregar Clientes
+              </button>
+            </div>
+          </div>
         </div>
         <!--end of col-->
       </div>
@@ -90,7 +90,8 @@
                 <a class="page-link" (click)="setPage(pager.currentPage + 1)"><i class="mdi mdi-chevron-right"></i></a>
               </li>
               <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                <a class="page-link" (click)="setPage(pager.totalPages)"><i class="mdi mdi-chevron-double-right"></i></a>
+                <a class="page-link" (click)="setPage(pager.totalPages)"><i
+                    class="mdi mdi-chevron-double-right"></i></a>
               </li>
             </ul>
           </nav>
@@ -110,3 +111,85 @@
 </div>
 
 
+<!-- Modal crear producto -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Cliente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-4">
+                  <label class="col-form-label">Tipo documento</label>
+                  <select id="tpdoc" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="clientAdd.identification_type">
+                    <option>CC</option>
+                    <option>TI</option>
+                    <option>CE</option>
+                    <option>RC</option>
+                  </select>
+              </div>
+              <div class="col-8">
+                <label for="recipient-name" class="col-form-label">Numero documento</label>
+                <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="clientAdd.identification_number">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <label for="recipient-name" class="col-form-label">Primer nombre</label>
+                <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="clientAdd.first_name">
+              </div>
+
+              <div class="col">
+                <label for="recipient-name" class="col-form-label">Segundo nombre</label>
+                <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="clientAdd.second_name">
+              </div>
+
+              <div class="col">
+                <label for="recipient-name" class="col-form-label">Primer apellido</label>
+                <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="clientAdd.surname">
+              </div>
+
+              <div class="col">
+                <label for="recipient-name" class="col-form-label">Segundo Apellido</label>
+                <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="clientAdd.second_surname">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Celular</label>
+                  <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="clientAdd.phone">
+                </div>
+
+                <div class="col">
+                  <label for="recipient-name" class="col-form-label">Correo</label>
+                  <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="clientAdd.email">
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="restablcerCrearCliente()">Restrablecer</button>
+        <button type="button" class="btn btn-success" (click)='AddNewClient()'>Crear Cliente</button>
+      </div>
+    </div>
+  </div>
+</div>
