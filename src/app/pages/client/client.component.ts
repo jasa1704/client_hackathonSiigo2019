@@ -22,7 +22,7 @@ export class ClientComponent implements OnInit {
   public clientVer = new Client();
   client1: Client[] = [];
 
-  constructor(private pagerService: PagerService, private clientesService: ClientesService, public _usuarioService: UsuarioService,) {
+  constructor(private pagerService: PagerService, private clientesService: ClientesService, public _usuarioService: UsuarioService) {
   }
 
   private allItems: any[];

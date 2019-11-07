@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Producto } from '../../interfaces/index'
 
+//Interfaces
+import { Usuario } from '../../models/usuario.model';
+
 //Servicio
-import { ProductoService, PagerService } from '../../services/service.index';
+import { ProductoService, PagerService, UsuarioService } from '../../services/service.index';
 
 @Component({
   selector: 'app-product',
@@ -11,6 +14,7 @@ import { ProductoService, PagerService } from '../../services/service.index';
 })
 export class ProductComponent implements OnInit {
 
+  usuario: Usuario;
   public productos = [];
   public productoAdd = new Producto();
   public productoEdit = new Producto();
@@ -24,11 +28,12 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productoService: ProductoService,
-    private pagerService: PagerService
+    private pagerService: PagerService,
+    public _usuarioService: UsuarioService
   ) { }
 
   ngOnInit() {
-
+    this.usuario = this._usuarioService.usuario;
     this.GetAllProducts();
   }
 
@@ -41,6 +46,7 @@ export class ProductComponent implements OnInit {
   }
 
   AddNewProduct() {
+    this.productoAdd.tenant_id = this.usuario._id;
     this.productoService.AddProducto(this.productoAdd, res => {
       this.GetAllProducts();
     })
